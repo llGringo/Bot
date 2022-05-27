@@ -5,7 +5,7 @@ class Tests(discord.ext.commands.Cog, name='Tests en cours'):
 		self.bot = bot
 
 	@commands.command(name="del")
-	@commands.is_owner()
+	#@commands.is_owner()
 	async def delete(self, ctx, number: int):
 		"""Efface le nombre de messages donné."""
 		try :
@@ -17,9 +17,16 @@ class Tests(discord.ext.commands.Cog, name='Tests en cours'):
 		else:
 			print(f'{number} messages supprimés de {ctx.channel}')
 
-	@commands.command(name="hey")
-	async def adhoc_play(self, ctx):
-		await ctx.send(f'Hey {ctx.author.name}, {ctx.author.id}')
+	@commands.command(name="id")
+	async def getId(self, ctx, numbre: int):
+		try:
+			messageID = ctx.channel.history(limit=number + 1).id()
+			await ctx.send(messageID)
+		except Exception as e:
+			await ctx.send(f'***ERROR:***{type(e).__name__} - {e}')
+		else:
+			print(f'{messageID} message id')
+
 
 
 def setup(bot):

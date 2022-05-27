@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 import os
 
 def main():
-    load_dotenv(dotenv_path=".config")
+    load_dotenv(dotenv_path=".gitignore")
     TOKEN = os.getenv("TOKEN")
     
     intents = discord.Intents.default()
@@ -25,7 +25,7 @@ def main():
 
     bot = CustomBotClient(
         command_prefix='!',
-        owner_id = 265856034621489152,
+        #owner_id = 265856034621489152,
         intents=intents
     )
 
